@@ -67,7 +67,7 @@ def main():
         name='Pontos de ônibus por bairro',
         data=bairros_finais,
         columns=['nome', 'num_pto'],
-        key_on='feature.properties.OBJECTID',
+        key_on='feature.properties.nome',
         fill_color='YlGn',
         legend_name='Ponos de ônibus por bairro ou distrito'
     ).add_to(m)
