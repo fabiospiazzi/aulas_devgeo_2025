@@ -13,7 +13,7 @@ import plotly.express as px
 
 
 
-bairros = 'https://github.com/fabiospiazzi/aulas_devgeo_2025/blob/main/distritos_administrativosWGS84.geojson'
+bairros = 'https:///raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/blob/main/distritos_administrativosWGS84.geojson'
 style = {'fillcolor' : '#F5DEB3' , 'color' : '#8B0000'}
 
 polygons = gpd.read_file(bairros)
@@ -28,8 +28,8 @@ folium.GeoJson(
    tooltip=folium.GeoJsonTooltip(fields=['nome', 'codigo_ibg']),
    style_function=lambda x: style).add_to(m)
 
-pontos_onibus = 'https://github.com/fabiospiazzi/aulas_devgeo_2025/blob/main/pontos_onibus_2024_WGS84_TODOS.geojson'
-poins = gpd.read_file(pontos_onibus)
+pontos_onibus = 'https:///raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/blob/main/pontos_onibus_2024_WGS84_TODOS.geojson'
+points = gpd.read_file(pontos_onibus)
 
 # Configuração da página
 PAGE_CONFIG = {"page_title":"Aplicação de Mapas com Pandas", "page_icon":":smiley:", "layout":"centered"}
