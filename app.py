@@ -1,4 +1,8 @@
 
+import streamlit as st
+from streamlit_folium import folium_static
+import folium
+
 PAGE_CONFIG = {"page_title":"Aplicação de Mapas","page_icon":":smiley:","layout":"centered"}
 st.set_page_config(**PAGE_CONFIG)
 
