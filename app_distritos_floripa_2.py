@@ -1,13 +1,8 @@
 
-import folium
-from folium import plugins
-from folium.plugins import MeasureControl
-from folium.plugins import MarkerCluster
-from folium.plugins import HeatMap
-import geopandas as gpd
 import streamlit as st
 from streamlit_folium import folium_static
 import folium
+import geopandas as gpd
 import pandas as pd
 import plotly.express as px
 
