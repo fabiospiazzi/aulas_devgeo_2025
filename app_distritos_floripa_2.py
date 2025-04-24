@@ -66,7 +66,7 @@ def main():
         geo_data=bairros_finais.to_json(),
         name='Pontos de ônibus por bairro',
         data=bairros_finais,
-        columns=['OBJECTID', 'num_pto'],
+        columns=['codigo', 'num_pto'],
         key_on='feature.properties.OBJECTID',
         fill_color='YlGn',
         legend_name='Ponos de ônibus por bairro ou distrito'
