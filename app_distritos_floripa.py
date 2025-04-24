@@ -57,11 +57,11 @@ def main():
     num_estacionamentos = st.sidebar.slider("Número de estacionamentos", int(bairros_filtrados['num_pto'].min()), int(bairros_filtrados['num_pto'].max()), (int(bairros_filtrados['num_pto'].min()), int(bairros_filtrados['num_pto'].max())))
     def main():
     # Cria uma dropdown para escolher a regional
-    regionais = polygons['NM_REGIONA'].unique()
+    regionais = polygons['nome'].unique()
     regional_selecionada = st.sidebar.selectbox('Escolha a regional', regionais)
 
     # Filtra os bairros por regional selecionada
-    bairros_filtrados = polygons[polygons['NM_REGIONA'] == regional_selecionada]
+    bairros_filtrados = polygons[polygons['nome'] == regional_selecionada]
 
     # Conta pontos dentro de cada polígono filtrado
     pts_in_polys = []
