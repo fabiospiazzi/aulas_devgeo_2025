@@ -13,7 +13,7 @@ import plotly.express as px
 
 
 
-bairros = 'https:///raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/blob/main/distritos_administrativosWGS84.geojson'
+bairros = 'https:///raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/main/distritos_administrativosWGS84.geojson'
 style = {'fillcolor' : '#F5DEB3' , 'color' : '#8B0000'}
 
 polygons = gpd.read_file(bairros)
@@ -28,7 +28,7 @@ folium.GeoJson(
    tooltip=folium.GeoJsonTooltip(fields=['nome', 'codigo_ibg']),
    style_function=lambda x: style).add_to(m)
 
-pontos_onibus = 'https:///raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/blob/main/pontos_onibus_2024_WGS84_TODOS.geojson'
+pontos_onibus = 'https:///raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/main/pontos_onibus_2024_WGS84_TODOS.geojson'
 points = gpd.read_file(pontos_onibus)
 
 # Configuração da página
