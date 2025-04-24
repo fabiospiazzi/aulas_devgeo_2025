@@ -49,14 +49,14 @@ def main():
     bairros_filtrados['num_pto'] = pts_in_polys
 
     # Slidebar para filtrar pelo número de estacionamentos
-    num_estacionamentos = st.sidebar.slider("Número de estacionamentos", int(bairros_filtrados['num_pto'].min()-1), int(bairros_filtrados['num_pto'].max()), (int(bairros_filtrados['num_pto'].min()-1), int(bairros_filtrados['num_pto'].max())))
+    num_pontos = st.sidebar.slider("Número de pontos de ônibus", int(bairros_filtrados['num_pto'].min()), int(bairros_filtrados['num_pto'].max()), (int(bairros_filtrados['num_pto'].min()), int(bairros_filtrados['num_pto'].max())))
     
     # Filtra os bairros pelo número de estacionamentos
-    bairros_finais = bairros_filtrados[bairros_filtrados['num_pto'].between(num_estacionamentos[0], num_estacionamentos[1])]
+    bairros_finais = bairros_filtrados[bairros_filtrados['num_pto'].between(num_pontos[0], num_pontos[1])]
 
     # Plota o histograma
     f = px.histogram(bairros_finais, x="num_pto", title="Distribuição de Estacionamentos")
-    f.update_xaxes(title="Estacionamentos")
+    f.update_xaxes(title="Pontos de ônibus")
     f.update_yaxes(title="Número")
     st.plotly_chart(f)
 
