@@ -15,7 +15,7 @@ from folium.plugins import HeatMap
 url_bairros = 'https://raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/main/distritos_administrativosWGS84.geojson'
 #style = {'fillcolor' : '#F5DEB3' , 'color' : '#8B0000'}
 
-polygons = gpd.read_file(url_bairros, encoding='utf-8')
+polygons = gpd.read_file(url_bairros)
 
 #m = folium.Map (location = [-27.594605,-48.508875],
  #              tiles = 'openstreetmap',
@@ -28,7 +28,7 @@ polygons = gpd.read_file(url_bairros, encoding='utf-8')
   # style_function=lambda x: style).add_to(m)
 
 url_pontos_onibus = 'https://raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/main/pontos_onibus_2024_WGS84_TODOS.geojson'
-points = gpd.read_file(url_pontos_onibus, encoding='utf-8')
+points = gpd.read_file(url_pontos_onibus)
 
 # Configuração da página
 PAGE_CONFIG = {"page_title":"Aplicação de Mapas com Pandas", "page_icon":":smiley:", "layout":"centered"}
@@ -38,6 +38,7 @@ st.set_page_config(**PAGE_CONFIG)
 
 def main():
     # Cria uma dropdown para escolher a regional
+    polygons['nome'] = polygons['nome'].apply(lambda x: x.encode('latin1').decode('utf-8') if isinstance(x, str) else x)
     regionais = polygons['nome'].unique()
     regional_selecionada = st.sidebar.selectbox('Escolha a regional', regionais)
 
