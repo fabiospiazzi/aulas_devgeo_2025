@@ -48,7 +48,7 @@ def main():
     print("máximo: ", bairros_filtrados['num_pto'].max())
     print("pts_in_polys: ",bairros_filtrados['num_pto']) 
  
-    #Slidebar para filtrar pelo número de pontos
+ #Slidebar para filtrar pelo número de pontos
  #    num_pontos = st.sidebar.slider(
  #   "Número de pontos de ônibus",
  #   int(bairros_filtrados['num_pto'].min()),
