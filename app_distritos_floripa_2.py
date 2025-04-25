@@ -53,14 +53,14 @@ def main():
  
     # Slidebar para filtrar pelo número de estacionamentos
    # num_pontos = st.sidebar.slider(
-  #  "Número de pontos de ônibus",
-  #  int(bairros_filtrados['num_pto'].min()-int(bairros_filtrados['num_pto'].max()+1)),
+   #  "Número de pontos de ônibus",
+   #  int(bairros_filtrados['num_pto'].min()-int(bairros_filtrados['num_pto'].max()+1)),
    # int(bairros_filtrados['num_pto'].max()),
    # (int(bairros_filtrados['num_pto'].min()-int(bairros_filtrados['num_pto'].max()+1), int(bairros_filtrados['num_pto'].max()))))
 
     
     # Filtra os bairros pelo número de estacionamentos
-    bairros_finais = bairros_filtrados[bairros_filtrados['num_pto'].between(num_pontos[0], num_pontos[1])]
+  #  bairros_finais = bairros_filtrados[bairros_filtrados['num_pto'].between(num_pontos[0], num_pontos[1])]
 
     # Plota o histograma
     f = px.histogram(bairros_finais, x="num_pto", title="Distribuição dos Pontos de Ônibus")
