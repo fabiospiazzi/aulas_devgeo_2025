@@ -81,7 +81,7 @@ def main():
  #   st.plotly_chart(f)
 
     # Mapa com Folium
-    m = folium.Map(location=[-27.594605,-48.508875], zoom_start=9)
+    m = folium.Map(location=[-27.594605,-48.508875], zoom_start=13)
     folium.Choropleth(
         geo_data=bairros_filtrados.to_json(),
         name='Pontos de ônibus por bairro',
@@ -92,11 +92,21 @@ def main():
         legend_name='Pontos de ônibus por bairro ou distrito'
     ).add_to(m)
  
+    #locations = []
+    #for idx, row in points.iterrows():
+     #locations.append([row['geometry'].y, row['geometry'].x])
     locations = []
-    for idx, row in points.iterrows():
-     locations.append([row['geometry'].y, row['geometry'].x])
+    
+    for i, poly in bairros_filtrados.iterrows():
+        pts_in_this_poly = points[points.within(poly.geometry)]
+        for _, row in pts_in_this_poly.iterrows():
+          locations.append([row.geometry.y, row.geometry.x])
 
-    m.add_children(MarkerCluster(locations=locations, name = 'Pontos de Ônibus de Florianópolis'))
+
+
+    folium.plugins.MarkerCluster(locations=locations, name='Pontos de Ônibus').add_to(m)
+ 
+    #m.add_children(MarkerCluster(locations=locations, name = 'Pontos de Ônibus de Florianópolis'))
 
     #for idx, row in points.iterrows():
      #locations.append([row['geometry'].y, row['geometry'].x])
