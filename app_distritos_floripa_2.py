@@ -38,7 +38,7 @@ st.set_page_config(**PAGE_CONFIG)
 
 def main():
     # Cria uma dropdown para escolher a regional
-    polygons['nome'] = polygons['nome'].apply(lambda x: x.encode('latin1').decode('utf-8') if isinstance(x, str) else x)
+    #polygons['nome'] = polygons['nome'].apply(lambda x: x.encode('latin1').decode('utf-8') if isinstance(x, str) else x)
     regionais = polygons['nome'].unique()
     regional_selecionada = st.sidebar.selectbox('Escolha a regional', regionais)
 
