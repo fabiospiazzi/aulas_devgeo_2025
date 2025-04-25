@@ -52,7 +52,7 @@ def main():
     print(polygons.crs)
     print("minimo: ", bairros_filtrados['num_pto'].min())
     print("máximo: ", bairros_filtrados['num_pto'].max())
-    print("pts_in_polys: ", pts_in_polys['num_pto']) 
+    print("pts_in_polys: ",bairros_filtrados['num_pto']) 
  
     #Slidebar para filtrar pelo número de estacionamentos
     num_pontos = st.sidebar.slider(
