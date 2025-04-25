@@ -66,8 +66,8 @@ def main():
  #   f.update_yaxes(title="Número")
  #   st.plotly_chart(f)
 
-    # Mapa com Folium
-   # m = folium.Map(location=[-27.594605,-48.508875], zoom_start=13)
+ # Mapa com Folium
+ #  m = folium.Map(location=[-27.594605,-48.508875], zoom_start=13)
  
  
  
