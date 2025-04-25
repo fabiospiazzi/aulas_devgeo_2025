@@ -63,12 +63,12 @@ def main():
     print("pts_in_polys: ",bairros_filtrados['num_pto']) 
  
     #Slidebar para filtrar pelo número de pontos
-    num_pontos = st.sidebar.slider(
-    "Número de pontos de ônibus",
-    int(bairros_filtrados['num_pto'].min()),
-    int(bairros_filtrados['num_pto'].max()),
-    (int(bairros_filtrados['num_pto'].min())-(int(bairros_filtrados['num_pto'].max()), int(bairros_filtrados['num_pto'].max())))
-)
+#    num_pontos = st.sidebar.slider(
+ #   "Número de pontos de ônibus",
+ #   int(bairros_filtrados['num_pto'].min()),
+ #   int(bairros_filtrados['num_pto'].max()),
+ #   (int(bairros_filtrados['num_pto'].min())-(int(bairros_filtrados['num_pto'].max()), int(bairros_filtrados['num_pto'].max())))
+#)
 
     
     # Filtra os bairros pelo número de estacionamentos
