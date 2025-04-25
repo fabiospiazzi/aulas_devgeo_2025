@@ -120,22 +120,3 @@ def main():
 if __name__ == '__main__':
     main()
     
-
-"""
-locations = []
-
-for idx, row in points.iterrows():
-    locations.append([row['geometry'].y, row['geometry'].x])
-
-m.add_children(MarkerCluster(locations=locations, name = 'Pontos de Ônibus de Florianópolis'))
-
-for idx, row in df.iterrows():
-    locations.append([row['geometry'].y, row['geometry'].x])
-
-HeatMap(locations,name = 'Mapa de Calor').add_to(m)
-
-
-folium.LayerControl().add_to(m)
-m.add_child(MeasureControl())
-
-m"""
