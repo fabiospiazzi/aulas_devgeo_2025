@@ -53,8 +53,8 @@ def main():
     "Número de pontos de ônibus",
     int(bairros_filtrados['num_pto'].min()),
     int(bairros_filtrados['num_pto'].max()),
-    (int(bairros_filtrados['num_pto'].min()), int(bairros_filtrados['num_pto'].max()))
-)
+    (int(bairros_filtrados['num_pto'].min()), int(bairros_filtrados['num_pto'].max())))
+
     
     # Filtra os bairros pelo número de estacionamentos
     bairros_finais = bairros_filtrados[bairros_filtrados['num_pto'].between(num_pontos[0], num_pontos[1])]
@@ -77,17 +77,16 @@ def main():
         legend_name='Ponos de ônibus por bairro ou distrito'
     ).add_to(m)
  
-  locations = []
-  for idx, row in points.iterrows():
-    locations.append([row['geometry'].y, row['geometry'].x])
+    locations = []
+    for idx, row in points.iterrows():
+     locations.append([row['geometry'].y, row['geometry'].x])
 
-  m.add_children(MarkerCluster(locations=locations, name = 'Pontos de Ônibus de Florianópolis'))
+    m.add_children(MarkerCluster(locations=locations, name = 'Pontos de Ônibus de Florianópolis'))
 
-  for idx, row in df.iterrows():
-    locations.append([row['geometry'].y, row['geometry'].x])
+    for idx, row in df.iterrows():
+     locations.append([row['geometry'].y, row['geometry'].x])
 
-HeatMap(locations,name = 'Mapa de Calor').add_to(m)
-    
+    HeatMap(locations,name = 'Mapa de Calor').add_to(m)
     folium.LayerControl().add_to(m)
     folium_static(m)
 
