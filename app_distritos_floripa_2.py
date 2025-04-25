@@ -15,7 +15,7 @@ from folium.plugins import HeatMap
 url_bairros = 'https://raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/main/distritos_administrativosWGS84.geojson'
 #style = {'fillcolor' : '#F5DEB3' , 'color' : '#8B0000'}
 
-polygons = gpd.read_file(url_bairros)
+polygons = gpd.read_file(url_bairros, encoding='utf-8')
 
 #m = folium.Map (location = [-27.594605,-48.508875],
  #              tiles = 'openstreetmap',
@@ -28,7 +28,7 @@ polygons = gpd.read_file(url_bairros)
   # style_function=lambda x: style).add_to(m)
 
 url_pontos_onibus = 'https://raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/main/pontos_onibus_2024_WGS84_TODOS.geojson'
-points = gpd.read_file(url_pontos_onibus)
+points = gpd.read_file(url_pontos_onibus, encoding='utf-8')
 
 # Configuração da página
 PAGE_CONFIG = {"page_title":"Aplicação de Mapas com Pandas", "page_icon":":smiley:", "layout":"centered"}
@@ -52,6 +52,8 @@ def main():
 
        
     bairros_filtrados['num_pto'] = pts_in_polys
+    
+ #Para meu controle, não sei pq o min e o max estão vindo com o mesmo valor, ai coloquei o -1 no min pra não dar erro
     print(pts_in_polys)
     print(points.crs)
     print(polygons.crs)
@@ -59,12 +61,12 @@ def main():
     print("máximo: ", bairros_filtrados['num_pto'].max())
     print("pts_in_polys: ",bairros_filtrados['num_pto']) 
  
-    #Slidebar para filtrar pelo número de estacionamentos
+    #Slidebar para filtrar pelo número de pontos
     num_pontos = st.sidebar.slider(
     "Número de pontos de ônibus",
-    int(bairros_filtrados['num_pto'].min()-67),
+    int(bairros_filtrados['num_pto'].min()-1),
     int(bairros_filtrados['num_pto'].max()),
-    (int(bairros_filtrados['num_pto'].min()-67), int(bairros_filtrados['num_pto'].max()))
+    (int(bairros_filtrados['num_pto'].min()-1), int(bairros_filtrados['num_pto'].max()))
 )
 
     
