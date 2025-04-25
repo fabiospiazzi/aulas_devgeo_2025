@@ -14,7 +14,6 @@ from folium.plugins import HeatMap
 url_bairros = 'https://raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/main/distritos_administrativosWGS84_c.geojson'
 polygons = gpd.read_file(url_bairros, encoding='utf-8')
 
-
 url_pontos_onibus = 'https://raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/main/pontos_onibus_2024_WGS84_TODOS.geojson'
 points = gpd.read_file(url_pontos_onibus)
 
@@ -23,6 +22,8 @@ PAGE_CONFIG = {"page_title":"Aplicação de Mapas com Pandas", "page_icon":":smi
 st.set_page_config(**PAGE_CONFIG)
 
 def main():
+
+    st.title("Mapa Interativo de Pontos de Ônibus em Florianópolis 🚌")
     # Cria um dropdown para escolher a regional
     #polygons['nome'] = polygons['nome'].apply(lambda x: x.encode('latin1').decode('utf-8') if isinstance(x, str) else x)
     regionais = polygons['nome'].unique()
