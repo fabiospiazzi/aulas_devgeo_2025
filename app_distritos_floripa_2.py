@@ -12,7 +12,7 @@ from folium.plugins import HeatMap
 
 
 url_bairros = 'https://raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/main/distritos_administrativosWGS84_c.geojson'
-polygons = gpd.read_file(url_bairros, encoding='utf-8')
+polygons = gpd.read_file(url_bairros)
 
 url_pontos_onibus = 'https://raw.githubusercontent.com/fabiospiazzi/aulas_devgeo_2025/main/pontos_onibus_2024_WGS84_TODOS.geojson'
 points = gpd.read_file(url_pontos_onibus)
