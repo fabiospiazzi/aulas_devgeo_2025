@@ -5,6 +5,10 @@ import folium
 import geopandas as gpd
 import pandas as pd
 import plotly.express as px
+from folium import plugins
+from folium.plugins import MeasureControl
+from folium.plugins import MarkerCluster
+from folium.plugins import HeatMap
 
 
 
@@ -57,9 +61,9 @@ def main():
     #Slidebar para filtrar pelo número de estacionamentos
     num_pontos = st.sidebar.slider(
     "Número de pontos de ônibus",
-    int(bairros_filtrados['num_pto'].min()-92),
+    int(bairros_filtrados['num_pto'].min()-70),
     int(bairros_filtrados['num_pto'].max()),
-    (int(bairros_filtrados['num_pto'].min()-92), int(bairros_filtrados['num_pto'].max()))
+    (int(bairros_filtrados['num_pto'].min()-70), int(bairros_filtrados['num_pto'].max()))
 )
 
     
