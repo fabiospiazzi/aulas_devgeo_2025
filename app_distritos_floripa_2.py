@@ -72,13 +72,13 @@ def main():
 
     
     # Filtra os bairros pelo número de estacionamentos
-    bairros_finais = bairros_filtrados[bairros_filtrados['num_pto'].between(num_pontos[0], num_pontos[1])]
+#    bairros_finais = bairros_filtrados[bairros_filtrados['num_pto'].between(num_pontos[0], num_pontos[1])]
 
     # Plota o histograma
-    f = px.histogram(bairros_finais, x="num_pto", title="Distribuição dos Pontos de Ônibus")
-    f.update_xaxes(title="Pontos de ônibus")
-    f.update_yaxes(title="Número")
-    st.plotly_chart(f)
+ #   f = px.histogram(bairros_finais, x="num_pto", title="Distribuição dos Pontos de Ônibus")
+ #   f.update_xaxes(title="Pontos de ônibus")
+ #   f.update_yaxes(title="Número")
+ #   st.plotly_chart(f)
 
     # Mapa com Folium
     m = folium.Map(location=[-27.594605,-48.508875], zoom_start=9)
