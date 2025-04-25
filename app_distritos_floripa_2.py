@@ -50,7 +50,12 @@ def main():
         pts_in_this_poly = points[points.within(poly.geometry)]
         pts_in_polys.append(len(pts_in_this_poly))
 
-    bairros_filtrados['num_pto'] = pts_in_polys
+   locations2 = []
+   for idx, row in points.iterrows():
+     locations2.append([row['geometry'].y, row['geometry'].x])
+
+   bairros_filtrados['num_pto'] = locations2
+  # bairros_filtrados['num_pto'] = pts_in_polys
     print(pts_in_polys)
     print(points.crs)
     print(polygons.crs)
@@ -85,7 +90,7 @@ def main():
         columns=['nome', 'num_pto'],
         key_on='feature.properties.nome',
         fill_color='YlGn',
-        legend_name='Ponos de ônibus por bairro ou distrito'
+        legend_name='Pontos de ônibus por bairro ou distrito'
     ).add_to(m)
  
     locations = []
@@ -94,10 +99,11 @@ def main():
 
     m.add_children(MarkerCluster(locations=locations, name = 'Pontos de Ônibus de Florianópolis'))
 
-    for idx, row in points.iterrows():
-     locations.append([row['geometry'].y, row['geometry'].x])
+    #for idx, row in points.iterrows():
+     #locations.append([row['geometry'].y, row['geometry'].x])
 
-    HeatMap(locations,name = 'Mapa de Calor').add_to(m)
+    #HeatMap(locations,name = 'Mapa de Calor').add_to(m)
+    
     folium.LayerControl().add_to(m)
     folium_static(m)
 
