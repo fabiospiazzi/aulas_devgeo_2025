@@ -47,16 +47,17 @@ def main():
         pts_in_polys.append(len(pts_in_this_poly))
 
     bairros_filtrados['num_pto'] = pts_in_polys
-    print(points.geom_type.unique())
+    print(pts_in_polys)
     print(points.crs)
     print(polygons.crs)
  
     #Slidebar para filtrar pelo número de estacionamentos
     num_pontos = st.sidebar.slider(
-                   "Número de pontos de ônibus",
-                    int(bairros_filtrados['num_pto'].min()-int(bairros_filtrados['num_pto'].max()+2)),
-                    int(bairros_filtrados['num_pto'].max()),
-                    (int(bairros_filtrados['num_pto'].min()-int(bairros_filtrados['num_pto'].max()+2), int(bairros_filtrados['num_pto'].max()))))
+    "Número de pontos de ônibus",
+    int(bairros_filtrados['num_pto'].min()),
+    int(bairros_filtrados['num_pto'].max()),
+    (int(bairros_filtrados['num_pto'].min()), int(bairros_filtrados['num_pto'].max()))
+)
 
     
     # Filtra os bairros pelo número de estacionamentos
