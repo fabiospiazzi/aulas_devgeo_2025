@@ -66,7 +66,7 @@ def main():
     num_pontos = st.sidebar.slider(
     "Número de pontos de ônibus",
     int(bairros_filtrados['num_pto'].min()-(int(bairros_filtrados['num_pto'].max()))),
-    int(bairros_filtrados['num_pto'].max())),
+    int(bairros_filtrados['num_pto'].max()),
     (int(bairros_filtrados['num_pto'].min()), int(bairros_filtrados['num_pto'].max()))
 )
 
