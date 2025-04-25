@@ -54,7 +54,7 @@ def main():
     for idx, row in points.iterrows():
      locations2.append([row['geometry'].y, row['geometry'].x])
 
-   bairros_filtrados['num_pto'] = locations2
+    bairros_filtrados['num_pto'] = locations2
   # bairros_filtrados['num_pto'] = pts_in_polys
     print(pts_in_polys)
     print(points.crs)
