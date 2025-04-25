@@ -83,9 +83,9 @@ def main():
     # Mapa com Folium
     m = folium.Map(location=[-27.594605,-48.508875], zoom_start=9)
     folium.Choropleth(
-        geo_data=bairros_finais.to_json(),
+        geo_data=bairros_filtrados.to_json(),
         name='Pontos de ônibus por bairro',
-        data=bairros_finais,
+        data=bairros_filtrados,
         columns=['nome', 'num_pto'],
         key_on='feature.properties.nome',
         fill_color='YlGn',
