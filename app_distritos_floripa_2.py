@@ -108,11 +108,6 @@ def main():
     
     folium.plugins.MarkerCluster(locations=locations, name='Pontos de Ônibus').add_to(m)
  
-    #m.add_children(MarkerCluster(locations=locations, name = 'Pontos de Ônibus de Florianópolis'))
-
-    #for idx, row in points.iterrows():
-     #locations.append([row['geometry'].y, row['geometry'].x])
-
     HeatMap(locations,name = 'Mapa de Calor').add_to(m)
     
     folium.LayerControl().add_to(m)
