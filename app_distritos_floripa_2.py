@@ -90,7 +90,7 @@ def main():
      #locations.append([row['geometry'].y, row['geometry'].x])
     
      #Adiciona marcador no centro do bairro
-     folium.Marker(
+    folium.Marker(
          location=[centroide.y, centroide.x],
          popup=f"Bairro: {regional_selecionada}",
          icon=folium.Icon(color='blue', icon='info-sign')
