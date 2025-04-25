@@ -81,7 +81,10 @@ def main():
  #   st.plotly_chart(f)
 
     # Mapa com Folium
-    m = folium.Map(location=[-27.594605,-48.508875], zoom_start=13)
+   # m = folium.Map(location=[-27.594605,-48.508875], zoom_start=13)
+ # Calcula o centroide do bairro selecionado
+    centroide = bairros_filtrados.geometry.centroid.iloc[0]
+    m = folium.Map(location=[centroide.y, centroide.x], zoom_start=14)
     folium.Choropleth(
         geo_data=bairros_filtrados.to_json(),
         name='Pontos de ônibus por bairro',
