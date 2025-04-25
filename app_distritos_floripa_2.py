@@ -50,12 +50,8 @@ def main():
         pts_in_this_poly = points[points.within(poly.geometry)]
         pts_in_polys.append(len(pts_in_this_poly))
 
-    locations2 = []
-    for idx, row in points.iterrows():
-     locations2.append([row['geometry'].y, row['geometry'].x])
-
-    bairros_filtrados['num_pto'] = locations2
-  # bairros_filtrados['num_pto'] = pts_in_polys
+       
+    bairros_filtrados['num_pto'] = pts_in_polys
     print(pts_in_polys)
     print(points.crs)
     print(polygons.crs)
