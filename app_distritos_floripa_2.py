@@ -50,7 +50,7 @@ def main():
         pts_in_this_poly = points[points.within(poly.geometry)]
         pts_in_polys.append(len(pts_in_this_poly))
 
-   locations2 = []
+    locations2 = []
    for idx, row in points.iterrows():
      locations2.append([row['geometry'].y, row['geometry'].x])
 
