@@ -76,15 +76,14 @@ def main():
         fill_color='YlGn',
         legend_name='Ponos de ônibus por bairro ou distrito'
     ).add_to(m)
-
-   locations = []
-
+ 
+  locations = []
   for idx, row in points.iterrows():
     locations.append([row['geometry'].y, row['geometry'].x])
 
   m.add_children(MarkerCluster(locations=locations, name = 'Pontos de Ônibus de Florianópolis'))
 
- for idx, row in df.iterrows():
+  for idx, row in df.iterrows():
     locations.append([row['geometry'].y, row['geometry'].x])
 
 HeatMap(locations,name = 'Mapa de Calor').add_to(m)
