@@ -61,9 +61,9 @@ def main():
     #Slidebar para filtrar pelo número de estacionamentos
     num_pontos = st.sidebar.slider(
     "Número de pontos de ônibus",
-    int(bairros_filtrados['num_pto'].min()-70),
+    int(bairros_filtrados['num_pto'].min()-67),
     int(bairros_filtrados['num_pto'].max()),
-    (int(bairros_filtrados['num_pto'].min()-70), int(bairros_filtrados['num_pto'].max()))
+    (int(bairros_filtrados['num_pto'].min()-67), int(bairros_filtrados['num_pto'].max()))
 )
 
     
@@ -94,7 +94,7 @@ def main():
 
     m.add_children(MarkerCluster(locations=locations, name = 'Pontos de Ônibus de Florianópolis'))
 
-    for idx, row in df.iterrows():
+    for idx, row in points.iterrows():
      locations.append([row['geometry'].y, row['geometry'].x])
 
     HeatMap(locations,name = 'Mapa de Calor').add_to(m)
